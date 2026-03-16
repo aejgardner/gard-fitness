@@ -1,10 +1,5 @@
 import Link from "next/link";
-
-const products = [
-  { id: "1", slug: "resistance-bands", name: "Resistance Bands", price: 20 },
-  { id: "2", slug: "yoga-mat", name: "Yoga Mat", price: 35 },
-  { id: "3", slug: "foam-roller", name: "Foam Roller", price: 25 },
-];
+import { products } from "@/lib/products";
 
 export default function ProductsPage() {
   return (

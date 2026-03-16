@@ -1,28 +1,5 @@
 import { notFound } from "next/navigation";
-
-const products = [
-  {
-    id: "1",
-    slug: "resistance-bands",
-    name: "Resistance Bands",
-    price: 20,
-    description: "Versatile bands for strength, mobility, and warm-ups.",
-  },
-  {
-    id: "2",
-    slug: "yoga-mat",
-    name: "Yoga Mat",
-    price: 35,
-    description: "A supportive mat for yoga, stretching, and floor workouts.",
-  },
-  {
-    id: "3",
-    slug: "foam-roller",
-    name: "Foam Roller",
-    price: 25,
-    description: "Recovery support for sore muscles and mobility work.",
-  },
-];
+import { getProductBySlug } from "@/lib/products";
 
 type ProductPageProps = {
   params: Promise<{
@@ -33,7 +10,7 @@ type ProductPageProps = {
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug } = await params;
 
-  const product = products.find((item) => item.slug === slug);
+  const product = getProductBySlug(slug);
 
   if (!product) {
     notFound();
